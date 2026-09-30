@@ -1,0 +1,681 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 ماجراجویی انگلیسی - درس ۱</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&family=Fredoka:wght@400;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', 'Fredoka', sans-serif; }
+  
+  body {
+    background: linear-gradient(135deg, #FFD93D 0%, #6BCB77 50%, #4D96FF 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  
+  .stars {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .star {
+    position: absolute;
+    font-size: 30px;
+    animation: twinkle 2s infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  
+  .container {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+    border: 6px dashed #FFD93D;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #4D96FF;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #FFD93D;
+  }
+  
+  .designer {
+    text-align: center;
+    color: #FF6B9D;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    background: #FFF3F8;
+    padding: 8px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .designer::before { content: "✨ "; }
+  .designer::after { content: " ✨"; }
+  
+  .input-group { margin-bottom: 20px; }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 700;
+    font-size: 1.05em;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 3px solid #6BCB77;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-family: inherit;
+    transition: all 0.3s;
+    background: #F0FFF4;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    border-color: #4D96FF;
+    box-shadow: 0 0 0 4px rgba(77,150,255,0.2);
+    transform: scale(1.02);
+  }
+  
+  .btn {
+    background: linear-gradient(135deg, #FF6B9D, #FFD93D);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2em;
+    font-weight: 900;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 6px 0 #C44569;
+    font-family: inherit;
+  }
+  
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 9px 0 #C44569; }
+  .btn:active { transform: translateY(3px); box-shadow: 0 3px 0 #C44569; }
+  
+  .btn-blue {
+    background: linear-gradient(135deg, #4D96FF, #6BCB77);
+    box-shadow: 0 6px 0 #2E5FA3;
+  }
+  .btn-blue:hover { box-shadow: 0 9px 0 #2E5FA3; }
+  .btn-blue:active { box-shadow: 0 3px 0 #2E5FA3; }
+  
+  .hidden { display: none !important; }
+  
+  .progress-bar {
+    background: #EEE;
+    height: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #DDD;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6BCB77, #FFD93D, #FF6B9D);
+    transition: width 0.5s;
+    border-radius: 10px;
+  }
+  
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .level-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: white;
+    font-size: 0.9em;
+  }
+  
+  .level-easy { background: #6BCB77; }
+  .level-medium { background: #FFA500; }
+  .level-hard { background: #FF6B9D; }
+  
+  .score-display {
+    background: #FFD93D;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .scenario-box {
+    background: #FFF9E6;
+    border: 3px solid #FFD93D;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .scenario-box::before {
+    content: "📖 سناریو: ";
+    color: #FF6B9D;
+    font-weight: 900;
+  }
+  
+  .question-text {
+    font-size: 1.3em;
+    color: #4D96FF;
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 20px;
+    background: #F0F7FF;
+    border-radius: 20px;
+    border: 3px dashed #4D96FF;
+    font-weight: 700;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.8;
+    direction: ltr;
+  }
+  
+  .options { display: grid; gap: 12px; }
+  
+  .option-btn {
+    background: white;
+    border: 3px solid #4D96FF;
+    padding: 16px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    font-family: 'Fredoka', 'Vazirmatn', sans-serif;
+    font-weight: 700;
+    color: #333;
+    direction: ltr;
+  }
+  
+  .option-btn:hover:not(:disabled) {
+    background: #E8F0FF;
+    transform: translateY(-3px);
+  }
+  
+  .option-btn.correct {
+    background: #6BCB77;
+    color: white;
+    border-color: #4CAF50;
+    animation: pop 0.5s;
+  }
+  
+  .option-btn.wrong {
+    background: #FF6B9D;
+    color: white;
+    border-color: #C44569;
+    animation: shake 0.5s;
+  }
+  
+  .option-btn:disabled { cursor: not-allowed; }
+  
+  @keyframes pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+  
+  .feedback {
+    text-align: center;
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 15px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6;
+  }
+  
+  .feedback.correct-fb { background: #D4F5D4; color: #2E7D32; }
+  .feedback.wrong-fb { background: #FFE0EC; color: #C44569; }
+  
+  .result-emoji {
+    font-size: 5em;
+    text-align: center;
+    margin: 10px 0;
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  .result-title {
+    text-align: center;
+    color: #4D96FF;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .student-info {
+    background: #FFF9E6;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 3px solid #FFD93D;
+  }
+  
+  .student-info p { font-size: 1.1em; margin: 8px 0; color: #333; }
+  .student-info strong { color: #FF6B9D; }
+  
+  .score-box {
+    background: linear-gradient(135deg, #6BCB77, #4D96FF);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 0 #2E5FA3;
+  }
+  
+  .score-box .score-num {
+    font-size: 3.5em;
+    font-weight: 900;
+    display: block;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  }
+  
+  .score-box .score-label { font-size: 1.2em; opacity: 0.95; }
+  
+  .stars-earned {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 15px 0;
+    letter-spacing: 5px;
+  }
+  
+  .message {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  
+  .msg-excellent { background: #D4F5D4; color: #2E7D32; border: 3px solid #6BCB77; }
+  .msg-good { background: #FFF3CD; color: #856404; border: 3px solid #FFD93D; }
+  .msg-try { background: #FFE0EC; color: #C44569; border: 3px solid #FF6B9D; }
+  
+  @media (max-width: 500px) {
+    .container { padding: 25px 20px; }
+    h1 { font-size: 1.5em; }
+    .question-text { font-size: 1.1em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <div id="startScreen">
+    <h1>🚀 ماجراجویی انگلیسی</h1>
+    <p class="designer">طراح بازی: رافعه خوشخو</p>
+    
+    <div class="input-group">
+      <label>👦 نام دانش‌آموز:</label>
+      <input type="text" id="studentName" placeholder="نام خود را وارد کنید...">
+    </div>
+    
+    <div class="input-group">
+      <label>🏫 نام مدرسه:</label>
+      <input type="text" id="schoolName" placeholder="نام مدرسه...">
+    </div>
+    
+    <div class="input-group">
+      <label>📚 پایه تحصیلی:</label>
+      <select id="gradeLevel">
+        <option value="">انتخاب کنید...</option>
+        <option value="هفتم">هفتم</option>
+        <option value="هشتم">هشتم</option>
+        <option value="نهم">نهم</option>
+      </select>
+    </div>
+    
+    <button class="btn" onclick="startGame()">🎮 شروع بازی</button>
+  </div>
+
+  <div id="quizScreen" class="hidden">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+    
+    <div class="question-header">
+      <span class="level-badge" id="levelBadge">آسان</span>
+      <span class="score-display" id="scoreDisplay">امتیاز: 0</span>
+      <span style="font-weight:700;color:#666" id="questionCounter">سوال 1 از 15</span>
+    </div>
+    
+    <div class="scenario-box" id="scenarioBox"></div>
+    <div class="question-text" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <div id="resultScreen" class="hidden">
+    <div class="result-emoji" id="resultEmoji">🏆</div>
+    <h2 class="result-title">پایان بازی!</h2>
+    
+    <div class="student-info">
+      <p>👦 دانش‌آموز: <strong id="resName"></strong></p>
+      <p>🏫 مدرسه: <strong id="resSchool"></strong></p>
+      <p>📚 پایه: <strong id="resGrade"></strong></p>
+    </div>
+    
+    <div class="score-box">
+      <span class="score-num" id="finalScore">0</span>
+      <span class="score-label">امتیاز از 100</span>
+    </div>
+    
+    <div class="stars-earned" id="starsEarned"></div>
+    <div class="message" id="resultMessage"></div>
+    
+    <button class="btn btn-blue" onclick="location.reload()">🔄 بازی مجدد</button>
+  </div>
+</div>
+
+<script>
+const starsContainer = document.getElementById('stars');
+const starEmojis = ['⭐', '🌟', '✨', '💫', '🌠'];
+for (let i = 0; i < 20; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 2 + 's';
+  starsContainer.appendChild(star);
+}
+
+// سوالات: سناریو فارسی + پرسش انگلیسی + گزینه‌های انگلیسی
+const questions = [
+  // سطح آسان
+  { 
+    scenario: "دوستی به تو سلام می‌کند و می‌گوید: \"Hi!\"",
+    q: "What do you say?", 
+    options: ["Hi!", "Goodbye", "Thank you", "Sorry"], 
+    correct: 0, level: "آسان", points: 4, 
+    explain: "پاسخ \"Hi!\" مناسب‌ترین جواب به احوالپرسی است." 
+  },
+  { 
+    scenario: "صبح وارد کلاس می‌شوی و معلم را می‌بینی.",
+    q: "What do you say?", 
+    options: ["Good night", "Good morning", "Goodbye", "Good evening"], 
+    correct: 1, level: "آسان", points: 4, 
+    explain: "\"Good morning\" برای احوالپرسی صبحگاهی استفاده می‌شود." 
+  },
+  { 
+    scenario: "دوستت از تو می‌پرسد حالت چطور است.",
+    q: "What do you say?", 
+    options: ["My name is Ali", "I'm fine, thanks", "Goodbye", "I'm 12"], 
+    correct: 1, level: "آسان", points: 4, 
+    explain: "\"I'm fine, thanks\" پاسخ سوال \"How are you?\" است." 
+  },
+  { 
+    scenario: "معلم از تو می‌پرسد اسمت چیست.",
+    q: "What do you say?", 
+    options: ["I'm fine", "My name is Reza", "Good morning", "Thank you"], 
+    correct: 1, level: "آسان", points: 4, 
+    explain: "\"My name is Reza\" نام شما را معرفی می‌کند." 
+  },
+  { 
+    scenario: "می‌خواهی از کلاس خارج شوی و از دوستت خداحافظی کنی.",
+    q: "What do you say?", 
+    options: ["Hello", "Good morning", "Goodbye", "Hi"], 
+    correct: 2, level: "آسان", points: 4, 
+    explain: "\"Goodbye\" برای خداحافظی استفاده می‌شود." 
+  },
+  
+  // سطح متوسط
+  { 
+    scenario: "کسی به تو می‌گوید از آشنایی با تو خوشحال است: \"Nice to meet you.\"",
+    q: "What do you say?", 
+    options: ["Goodbye", "Nice to meet you, too", "I'm 12", "Good morning"], 
+    correct: 1, level: "متوسط", points: 6, 
+    explain: "پاسخ متقابل \"Nice to meet you, too\" است." 
+  },
+  { 
+    scenario: "می‌خواهی دوستت رضا را به کلاس معرفی کنی.",
+    q: "What do you say?", 
+    options: ["I'm Reza", "This is my friend, Reza", "How are you?", "Goodbye"], 
+    correct: 1, level: "متوسط", points: 6, 
+    explain: "\"This is my friend, Reza\" برای معرفی دوست استفاده می‌شود." 
+  },
+  { 
+    scenario: "معلم می‌پرسد نام خانوادگی‌ات را چگونه هجی می‌کنی: \"How do you spell your last name?\"",
+    q: "What do you say?", 
+    options: ["I'm 12", "K-O-M-I-J-A-N-I", "I'm fine", "Good morning"], 
+    correct: 1, level: "متوسط", points: 6, 
+    explain: "پاسخ به spell، املای حروف نام خانوادگی است." 
+  },
+  { 
+    scenario: "می‌خواهی نام پسری را در کلاس بپرسی.",
+    q: "What do you say?", 
+    options: ["Who is that girl?", "Who is that boy?", "Who is that woman?", "Who is that man?"], 
+    correct: 1, level: "متوسط", points: 6, 
+    explain: "\"Who is that boy?\" برای پرسیدن نام پسر است." 
+  },
+  { 
+    scenario: "معلم خانم مجرد شما وارد کلاس می‌شود و می‌خواهی او را صدا بزنی.",
+    q: "How do you call her?", 
+    options: ["Mr. Karimi", "Mrs. Karimi", "Miss Karimi", "Ms. Karimi"], 
+    correct: 2, level: "متوسط", points: 6, 
+    explain: "\"Miss\" برای خانم مجرد استفاده می‌شود." 
+  },
+  
+  // سطح سخت
+  { 
+    scenario: "وارد دفتر مدرسه می‌شوی. منشی می‌پرسد: \"Can I help you?\"",
+    q: "What do you say?", 
+    options: ["Goodbye", "Yes, can I have my library card, please?", "I'm fine", "Good morning"], 
+    correct: 1, level: "سخت", points: 10, 
+    explain: "درخواست مودبانه \"Can I have...\" پاسخ مناسب است." 
+  },
+  { 
+    scenario: "می‌خواهی ساعت را بپرسی.",
+    q: "What do you say?", 
+    options: ["What's your name?", "What time is it?", "How are you?", "Where are you?"], 
+    correct: 1, level: "سخت", points: 10, 
+    explain: "\"What time is it?\" برای پرسیدن ساعت است." 
+  },
+  { 
+    scenario: "می‌خواهی سن کسی را بپرسی.",
+    q: "What do you ask?", 
+    options: ["How old are you?", "What's your name?", "Where are you?", "How are you?"], 
+    correct: 0, level: "سخت", points: 10, 
+    explain: "\"How old are you?\" برای پرسیدن سن است." 
+  },
+  { 
+    scenario: "می‌خواهی دوستت سارا را معرفی کنی.",
+    q: "Which sentence is correct?", 
+    options: ["He's my friend, Sara", "She's my friend, Sara", "It's my friend, Sara", "They're my friend, Sara"], 
+    correct: 1, level: "سخت", points: 10, 
+    explain: "برای دختر از \"She's\" استفاده می‌شود." 
+  },
+  { 
+    scenario: "می‌خواهی مکالمه را کامل کنی: \"Hi, how are you?\"",
+    q: "What is the correct response?", 
+    options: ["My name is Ali", "Fine, thanks. And you?", "Goodbye", "I'm 12"], 
+    correct: 1, level: "سخت", points: 10, 
+    explain: "\"Fine, thanks. And you?\" یک مکالمه کامل و طبیعی است." 
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let studentData = {};
+
+function startGame() {
+  const name = document.getElementById('studentName').value.trim();
+  const school = document.getElementById('schoolName').value.trim();
+  const grade = document.getElementById('gradeLevel').value;
+  
+  if (!name || !school || !grade) {
+    alert('لطفاً همه فیلدها را پر کنید! 🙏');
+    return;
+  }
+  
+  studentData = { name, school, grade };
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('quizScreen').classList.remove('hidden');
+  
+  currentQuestion = 0;
+  score = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = questions[currentQuestion];
+  const progress = (currentQuestion / questions.length) * 100;
+  document.getElementById('progressFill').style.width = progress + '%';
+  
+  const badge = document.getElementById('levelBadge');
+  badge.textContent = q.level;
+  badge.className = 'level-badge ' + (q.level === 'آسان' ? 'level-easy' : q.level === 'متوسط' ? 'level-medium' : 'level-hard');
+  
+  document.getElementById('scoreDisplay').textContent = 'امتیاز: ' + score;
+  document.getElementById('questionCounter').textContent = `سوال ${currentQuestion + 1} از ${questions.length}`;
+  document.getElementById('scenarioBox').textContent = q.scenario;
+  document.getElementById('questionText').textContent = q.q;
+  
+  const fb = document.getElementById('feedback');
+  fb.textContent = '';
+  fb.className = 'feedback';
+  
+  const optionsContainer = document.getElementById('optionsContainer');
+  optionsContainer.innerHTML = '';
+  
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.onclick = () => checkAnswer(idx, btn);
+    optionsContainer.appendChild(btn);
+  });
+}
+
+function checkAnswer(selectedIdx, btn) {
+  const q = questions[currentQuestion];
+  const allBtns = document.querySelectorAll('.option-btn');
+  allBtns.forEach(b => b.disabled = true);
+  
+  const fb = document.getElementById('feedback');
+  
+  if (selectedIdx === q.correct) {
+    btn.classList.add('correct');
+    score += q.points;
+    fb.textContent = '✅ آفرین! ' + q.explain;
+    fb.className = 'feedback correct-fb';
+  } else {
+    btn.classList.add('wrong');
+    allBtns[q.correct].classList.add('correct');
+    fb.textContent = '❌ ' + q.explain;
+    fb.className = 'feedback wrong-fb';
+  }
+  
+  document.getElementById('scoreDisplay').textContent = 'امتیاز: ' + score;
+  
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  }, 2500);
+}
+
+function showResult() {
+  document.getElementById('quizScreen').classList.add('hidden');
+  document.getElementById('resultScreen').classList.remove('hidden');
+  
+  document.getElementById('resName').textContent = studentData.name;
+  document.getElementById('resSchool').textContent = studentData.school;
+  document.getElementById('resGrade').textContent = studentData.grade;
+  document.getElementById('finalScore').textContent = score;
+  
+  let stars = 0;
+  if (score >= 90) stars = 5;
+  else if (score >= 75) stars = 4;
+  else if (score >= 60) stars = 3;
+  else if (score >= 40) stars = 2;
+  else if (score >= 20) stars = 1;
+  
+  document.getElementById('starsEarned').textContent = '⭐'.repeat(stars) + '☆'.repeat(5 - stars);
+  
+  const msgEl = document.getElementById('resultMessage');
+  const emojiEl = document.getElementById('resultEmoji');
+  
+  if (score >= 90) {
+    emojiEl.textContent = '🏆';
+    msgEl.textContent = '🌟 عالی! تو یک قهرمان انگلیسی هستی! تسلطت فوق‌العاده است.';
+    msgEl.className = 'message msg-excellent';
+  } else if (score >= 70) {
+    emojiEl.textContent = '🎉';
+    msgEl.textContent = '👏 خیلی خوب! کمی تمرین بیشتر و عالی می‌شی!';
+    msgEl.className = 'message msg-excellent';
+  } else if (score >= 50) {
+    emojiEl.textContent = '😊';
+    msgEl.textContent = '👍 خوب بود! با تمرین بیشتر بهتر می‌شی!';
+    msgEl.className = 'message msg-good';
+  } else {
+    emojiEl.textContent = '💪';
+    msgEl.textContent = '🌱 نگران نباش! دوباره تلاش کن، تو می‌تونی!';
+    msgEl.className = 'message msg-try';
+  }
+}
+</script>
+
+</body>
+</html>
